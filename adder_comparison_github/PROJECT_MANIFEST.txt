@@ -1,0 +1,10 @@
+Project: Comparative Analysis of 32-bit Ripple-Carry, Brent-Kung, and Kogge-Stone Adders
+Language: Verilog HDL
+Simulation: Icarus Verilog
+Synthesis: Yosys + ABC
+Timing analysis: OpenSTA
+Constraints: constraints.sdc
+Standard-cell library expected locally: lib/nangate_typ.lib (not redistributed)
+
+Important source provenance note:
+The original workspace's BK/KS RTL source was not included in the supplied starter files. The included BK/KS modules are clean implementations of the named architectures, and may not reproduce the historical mapped metrics included in reports/adder_comparison.csv and the PNGs. Rerun the flow before publishing measured claims.

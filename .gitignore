@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Simulation products
+sim/*.vvp
+sim/*.vcd
+
+# Generated synthesis netlists and logs (recreate with scripts)
+synth/*_netlist.v
+reports/*_synth.log
+reports/*_sta.log
+reports/all_adders_sim.log
+
+# Local PDK/library files: add only files you are permitted to redistribute
+lib/*.lib
+lib/*.lib.gz
+lib/*.db
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

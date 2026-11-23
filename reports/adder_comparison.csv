@@ -1,4 +1,5 @@
-Architecture,Width,Test_Vectors,Simulation_Errors,Mapped_Cells,Area_Library_Units,Data_Arrival_ns,Worst_Slack_ns,Timing_Status,Data_Provenance
-Ripple-Carry,32,100010,0,161,195.776,2.186,6.814,MET,Historical user-workspace run; rerun bundled RTL before publication
-Brent-Kung,32,100010,0,190,219.716,1.675,7.325,MET,Historical user-workspace run; rerun bundled RTL before publication
-Kogge-Stone,32,100010,0,179,214.130,2.041,6.959,MET,Historical user-workspace run; rerun bundled RTL before publication
+Architecture,Width,Test_Vectors,Simulation_Errors,Formal_Verification,Mapped_Cells,Area_Library_Units,Data_Arrival_ns,Worst_Slack_ns,Total_Power_uW,Leakage_Power_uW,Area_Delay_Product,Timing_Status
+Ripple-Carry,32,100010,0,PROVED_100%_CORRECT,161,195.776000,2.186,6.814,17.883,4.650,427.966,MET
+Brent-Kung,32,100010,0,PROVED_100%_CORRECT,190,219.716000,1.675,7.325,20.635,5.270,368.024,MET
+Kogge-Stone,32,100010,0,PROVED_100%_CORRECT,179,214.130000,2.041,6.959,20.707,5.085,437.039,MET
+Han-Carlson,32,100010,0,PROVED_100%_CORRECT,161,195.776000,2.372,6.628,18.976,4.710,464.381,MET

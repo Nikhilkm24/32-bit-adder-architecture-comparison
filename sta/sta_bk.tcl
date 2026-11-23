@@ -6,3 +6,6 @@ read_sdc constraints.sdc
 
 puts "\n===== BRENT-KUNG TIMING REPORT ====="
 report_checks -path_delay max -format full_clock_expanded -fields {slew cap input_pin net fanout} -digits 3
+
+puts "\n===== BRENT-KUNG POWER REPORT ====="
+report_power -digits 4

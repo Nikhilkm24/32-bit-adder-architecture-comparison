@@ -1,0 +1,2489 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `formal/verify_formal.ys' --
+
+1. Executing Verilog-2005 frontend: rtl/ripple_carry_32.v
+Parsing SystemVerilog input from `rtl/ripple_carry_32.v' to AST representation.
+Generating RTLIL representation for module `\ripple_carry_32'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \ripple_carry_32
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \ripple_carry_32
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_carry_32.
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_carry_32.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_carry_32..
+Removed 0 unused cells and 64 unused wires.
+<suppressed ~1 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module ripple_carry_32...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_carry_32.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_carry_32'.
+Removed a total of 0 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_carry_32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_carry_32.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_carry_32'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_carry_32..
+
+2.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_carry_32.
+
+2.6.8. Finished OPT passes. (There is nothing left to do.)
+
+2.7. Executing WREDUCE pass (reducing word size of cells).
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_carry_32..
+
+2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_carry_32.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_carry_32'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_carry_32..
+
+2.10.4. Finished fast OPT passes.
+
+2.11. Printing statistics.
+
+=== ripple_carry_32 ===
+
+   Number of wires:                166
+   Number of wire bits:            291
+   Number of public wires:           6
+   Number of public wire bits:     131
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                224
+     $and                           96
+     $or                            64
+     $xor                           64
+
+2.12. Executing CHECK pass (checking for obvious problems).
+Checking module ripple_carry_32...
+Found and reported 0 problems.
+
+3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_carry_32..
+Renaming module \ripple_carry_32 to \uut_rca.
+
+4. Executing Verilog-2005 frontend: <<EOT
+Parsing SystemVerilog input from `<<EOT' to AST representation.
+Generating RTLIL representation for module `\golden_ref'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \golden_ref
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \golden_ref
+Removed 0 unused modules.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+5.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+5.5. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+5.6. Executing OPT pass (performing simple optimizations).
+
+5.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+5.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+5.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \golden_ref..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \golden_ref.
+Performed a total of 0 changes.
+
+5.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+5.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+5.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+5.6.8. Finished OPT passes. (There is nothing left to do.)
+
+5.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 33) from port A of cell golden_ref.$add$<<EOT:8$225 ($add).
+Removed top 1 bits (of 33) from port B of cell golden_ref.$add$<<EOT:8$225 ($add).
+
+5.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+5.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.10. Executing OPT pass (performing simple optimizations).
+
+5.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+5.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+5.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+5.10.4. Finished fast OPT passes.
+
+5.11. Printing statistics.
+
+=== golden_ref ===
+
+   Number of wires:                  6
+   Number of wire bits:            131
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                            2
+
+5.12. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Renaming module \golden_ref to \golden.
+
+7. Executing MITER pass (creating miter circuit).
+Creating miter cell "miter_rca" with gold cell "ref" and gate cell "uut".
+
+7.1. Executing FLATTEN pass (flatten design).
+<suppressed ~2 debug messages>
+
+7.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_rca.
+
+8. Executing PREP pass.
+
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1.1. Analyzing design hierarchy..
+Top module:  \miter_rca
+
+8.1.2. Analyzing design hierarchy..
+Top module:  \miter_rca
+Removing unused module `\ref'.
+Removing unused module `\uut'.
+Removed 2 unused modules.
+Module miter_rca directly or indirectly contains formal properties -> setting "keep" attribute.
+
+8.2. Executing PROC pass (convert processes to netlists).
+
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_rca.
+
+8.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_rca.
+
+8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_rca..
+
+8.5. Executing CHECK pass (checking for obvious problems).
+Checking module miter_rca...
+Found and reported 0 problems.
+
+8.6. Executing OPT pass (performing simple optimizations).
+
+8.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_rca.
+
+8.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_rca'.
+Removed a total of 0 cells.
+
+8.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \miter_rca..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \miter_rca.
+Performed a total of 0 changes.
+
+8.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_rca'.
+Removed a total of 0 cells.
+
+8.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_rca..
+
+8.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_rca.
+
+8.6.8. Finished OPT passes. (There is nothing left to do.)
+
+8.7. Executing WREDUCE pass (reducing word size of cells).
+
+8.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_rca..
+
+8.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.10. Executing OPT pass (performing simple optimizations).
+
+8.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_rca.
+
+8.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_rca'.
+Removed a total of 0 cells.
+
+8.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_rca..
+
+8.10.4. Finished fast OPT passes.
+
+8.11. Printing statistics.
+
+=== miter_rca ===
+
+   Number of wires:                183
+   Number of wire bits:            557
+   Number of public wires:          19
+   Number of public wire bits:     361
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                231
+     $add                            2
+     $and                           96
+     $assert                         1
+     $eqx                            2
+     $not                            1
+     $or                            64
+     $reduce_and                     1
+     $xor                           64
+
+8.12. Executing CHECK pass (checking for obvious problems).
+Checking module miter_rca...
+Found and reported 0 problems.
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 231 cells to SAT database.
+Import proof for assert: $auto$miter.cc:269:create_miter_equiv$232 when 1'1.
+Import show expression: $auto$miter.cc:242:create_miter_equiv$228
+Import show expression: $auto$miter.cc:242:create_miter_equiv$230
+Import show expression: $auto$miter.cc:269:create_miter_equiv$232
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$101_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$108_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$10_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$115_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$122_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$129_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$136_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$143_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$150_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$157_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$164_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$171_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$178_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$17_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$185_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$192_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$199_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$206_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$213_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$220_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$24_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$31_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$38_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$3_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$45_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$52_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$59_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$66_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$73_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$80_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$87_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:19$94_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$102_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$109_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$116_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$11_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$123_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$130_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$137_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$144_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$151_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$158_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$165_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$172_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$179_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$186_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$18_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$193_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$200_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$207_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$214_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$221_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$25_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$32_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$39_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$46_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$4_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$53_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$60_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$67_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$74_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$81_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$88_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:20$95_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$104_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$111_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$118_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$125_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$132_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$139_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$13_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$146_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$153_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$160_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$167_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$174_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$181_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$188_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$195_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$202_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$209_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$20_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$216_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$223_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$27_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$34_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$41_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$48_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$55_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$62_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$69_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$6_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$76_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$83_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$90_Y
+Import show expression: $flatten\gate.$and$rtl/ripple_carry_32.v:21$97_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$103_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$110_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$117_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$124_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$12_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$131_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$138_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$145_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$152_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$159_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$166_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$173_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$180_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$187_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$194_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$19_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$201_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$208_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$215_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$222_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$26_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$33_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$40_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$47_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$54_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$5_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$61_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$68_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$75_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$82_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$89_Y
+Import show expression: $flatten\gate.$or$rtl/ripple_carry_32.v:19$96_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$106_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$113_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$120_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$127_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$134_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$141_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$148_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$155_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$15_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$162_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$169_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$176_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$183_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$190_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$197_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$1_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$204_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$211_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$218_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$22_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$29_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$36_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$43_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$50_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$57_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$64_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$71_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$78_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$85_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$8_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$92_Y
+Import show expression: $flatten\gate.$xor$rtl/ripple_carry_32.v:18$99_Y
+Import show expression: $flatten\gold.$add$<<EOT:8$225_Y
+Import show expression: \gate.A
+Import show expression: \gate.B
+Import show expression: \gate.Cin
+Import show expression: \gate.Cout
+Import show expression: \gate.Sum
+Import show expression: \gate.carry
+Import show expression: \gate_Cout
+Import show expression: \gate_Sum
+Import show expression: \gold.A
+Import show expression: \gold.B
+Import show expression: \gold.Cin
+Import show expression: \gold.Cout
+Import show expression: \gold.Sum
+Import show expression: \gold_Cout
+Import show expression: \gold_Sum
+Import show expression: \in_A
+Import show expression: \in_B
+Import show expression: \in_Cin
+Import show expression: \trigger
+
+Solving problem with 2048 variables and 5389 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+10. Executing Verilog-2005 frontend: rtl/brent_kung_32.v
+Parsing SystemVerilog input from `rtl/brent_kung_32.v' to AST representation.
+Generating RTLIL representation for module `\brent_kung_32'.
+Successfully finished Verilog frontend.
+
+11. Executing PREP pass.
+
+11.1. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1.1. Analyzing design hierarchy..
+Top module:  \brent_kung_32
+
+11.1.2. Analyzing design hierarchy..
+Top module:  \brent_kung_32
+Removed 0 unused modules.
+
+11.2. Executing PROC pass (convert processes to netlists).
+
+11.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+11.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 578 assignments to connections.
+
+11.2.4. Executing PROC_INIT pass (extract init attributes).
+
+11.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+11.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+
+11.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\brent_kung_32.\G[9]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[8]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[7]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[6]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[5]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[4]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[3]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[2]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[1]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\G[0]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[9]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[8]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[7]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[2]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[3]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[4]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[5]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[6]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[1]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+No latch inferred for signal `\brent_kung_32.\P[0]' from process `\brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+
+11.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+11.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `brent_kung_32.$proc$rtl/brent_kung_32.v:0$331'.
+Cleaned up 0 empty switches.
+
+11.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module brent_kung_32.
+
+11.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module brent_kung_32.
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \brent_kung_32..
+Removed 0 unused cells and 200 unused wires.
+<suppressed ~1 debug messages>
+
+11.5. Executing CHECK pass (checking for obvious problems).
+Checking module brent_kung_32...
+Found and reported 0 problems.
+
+11.6. Executing OPT pass (performing simple optimizations).
+
+11.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module brent_kung_32.
+
+11.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\brent_kung_32'.
+Removed a total of 0 cells.
+
+11.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \brent_kung_32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \brent_kung_32.
+Performed a total of 0 changes.
+
+11.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\brent_kung_32'.
+Removed a total of 0 cells.
+
+11.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \brent_kung_32..
+
+11.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module brent_kung_32.
+
+11.6.8. Finished OPT passes. (There is nothing left to do.)
+
+11.7. Executing WREDUCE pass (reducing word size of cells).
+
+11.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \brent_kung_32..
+
+11.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+11.10. Executing OPT pass (performing simple optimizations).
+
+11.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module brent_kung_32.
+
+11.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\brent_kung_32'.
+Removed a total of 0 cells.
+
+11.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \brent_kung_32..
+
+11.10.4. Finished fast OPT passes.
+
+11.11. Printing statistics.
+
+=== brent_kung_32 ===
+
+   Number of wires:                115
+   Number of wire bits:            860
+   Number of public wires:          26
+   Number of public wire bits:     771
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                269
+     $and                          147
+     $or                            89
+     $xor                           33
+
+11.12. Executing CHECK pass (checking for obvious problems).
+Checking module brent_kung_32...
+Found and reported 0 problems.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \brent_kung_32..
+Renaming module \brent_kung_32 to \uut_bk.
+
+13. Executing Verilog-2005 frontend: <<EOT
+Parsing SystemVerilog input from `<<EOT' to AST representation.
+Generating RTLIL representation for module `\golden_ref'.
+Successfully finished Verilog frontend.
+
+14. Executing PREP pass.
+
+14.1. Executing HIERARCHY pass (managing design hierarchy).
+
+14.1.1. Analyzing design hierarchy..
+Top module:  \golden_ref
+
+14.1.2. Analyzing design hierarchy..
+Top module:  \golden_ref
+Removed 0 unused modules.
+
+14.2. Executing PROC pass (convert processes to netlists).
+
+14.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+14.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+14.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+14.2.4. Executing PROC_INIT pass (extract init attributes).
+
+14.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+14.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+14.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+14.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+14.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+14.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+14.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+14.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+14.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+14.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+14.5. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+14.6. Executing OPT pass (performing simple optimizations).
+
+14.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+14.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+14.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \golden_ref..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+14.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \golden_ref.
+Performed a total of 0 changes.
+
+14.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+14.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+14.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+14.6.8. Finished OPT passes. (There is nothing left to do.)
+
+14.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 33) from port A of cell golden_ref.$add$<<EOT:8$505 ($add).
+Removed top 1 bits (of 33) from port B of cell golden_ref.$add$<<EOT:8$505 ($add).
+
+14.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+14.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+14.10. Executing OPT pass (performing simple optimizations).
+
+14.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+14.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+14.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+14.10.4. Finished fast OPT passes.
+
+14.11. Printing statistics.
+
+=== golden_ref ===
+
+   Number of wires:                  6
+   Number of wire bits:            131
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                            2
+
+14.12. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Renaming module \golden_ref to \golden.
+
+16. Executing MITER pass (creating miter circuit).
+Creating miter cell "miter_bk" with gold cell "ref" and gate cell "uut".
+
+16.1. Executing FLATTEN pass (flatten design).
+<suppressed ~2 debug messages>
+
+16.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_bk.
+
+17. Executing PREP pass.
+
+17.1. Executing HIERARCHY pass (managing design hierarchy).
+
+17.1.1. Analyzing design hierarchy..
+Top module:  \miter_bk
+
+17.1.2. Analyzing design hierarchy..
+Top module:  \miter_bk
+Removing unused module `\ref'.
+Removing unused module `\uut'.
+Removed 2 unused modules.
+Module miter_bk directly or indirectly contains formal properties -> setting "keep" attribute.
+
+17.2. Executing PROC pass (convert processes to netlists).
+
+17.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+17.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+17.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+17.2.4. Executing PROC_INIT pass (extract init attributes).
+
+17.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+17.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+17.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+17.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+17.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+17.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+17.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+17.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_bk.
+
+17.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_bk.
+
+17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_bk..
+
+17.5. Executing CHECK pass (checking for obvious problems).
+Checking module miter_bk...
+Found and reported 0 problems.
+
+17.6. Executing OPT pass (performing simple optimizations).
+
+17.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_bk.
+
+17.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_bk'.
+Removed a total of 0 cells.
+
+17.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \miter_bk..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+17.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \miter_bk.
+Performed a total of 0 changes.
+
+17.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_bk'.
+Removed a total of 0 cells.
+
+17.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_bk..
+
+17.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_bk.
+
+17.6.8. Finished OPT passes. (There is nothing left to do.)
+
+17.7. Executing WREDUCE pass (reducing word size of cells).
+
+17.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_bk..
+
+17.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+17.10. Executing OPT pass (performing simple optimizations).
+
+17.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_bk.
+
+17.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_bk'.
+Removed a total of 0 cells.
+
+17.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_bk..
+
+17.10.4. Finished fast OPT passes.
+
+17.11. Printing statistics.
+
+=== miter_bk ===
+
+   Number of wires:                132
+   Number of wire bits:           1126
+   Number of public wires:          39
+   Number of public wire bits:    1001
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                276
+     $add                            2
+     $and                          147
+     $assert                         1
+     $eqx                            2
+     $not                            1
+     $or                            89
+     $reduce_and                     1
+     $xor                           33
+
+17.12. Executing CHECK pass (checking for obvious problems).
+Checking module miter_bk...
+Found and reported 0 problems.
+
+18. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 276 cells to SAT database.
+Import proof for assert: $auto$miter.cc:269:create_miter_equiv$512 when 1'1.
+Import show expression: $auto$miter.cc:242:create_miter_equiv$508
+Import show expression: $auto$miter.cc:242:create_miter_equiv$510
+Import show expression: $auto$miter.cc:269:create_miter_equiv$512
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$334_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$337_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$340_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$343_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$346_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$349_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$352_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$355_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$358_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$361_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$364_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$367_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$370_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$373_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$376_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$379_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$382_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$385_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$388_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$391_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$394_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$397_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$400_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$403_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$406_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$409_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$412_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$415_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$418_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$421_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:29$424_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$427_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$430_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$433_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$436_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$439_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$442_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$445_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$448_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$451_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$454_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$457_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$460_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$463_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$466_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$469_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$472_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$475_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$478_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$481_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$484_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$487_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$490_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$493_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$496_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$499_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:45$502_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:60$236_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$239_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$242_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$245_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$248_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$251_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$254_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$257_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$260_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$263_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$266_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$269_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$272_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$275_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$278_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$281_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$284_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$287_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$290_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$293_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$296_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$299_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$302_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$305_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$308_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$311_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$314_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$317_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$320_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$323_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$326_Y
+Import show expression: $flatten\gate.$and$rtl/brent_kung_32.v:62$329_Y
+Import show expression: $flatten\gold.$add$<<EOT:8$505_Y
+Import show expression: \gate.A
+Import show expression: \gate.B
+Import show expression: \gate.Cin
+Import show expression: \gate.Cout
+Import show expression: \gate.G[0]
+Import show expression: \gate.G[1]
+Import show expression: \gate.G[2]
+Import show expression: \gate.G[3]
+Import show expression: \gate.G[4]
+Import show expression: \gate.G[5]
+Import show expression: \gate.G[6]
+Import show expression: \gate.G[7]
+Import show expression: \gate.G[8]
+Import show expression: \gate.G[9]
+Import show expression: \gate.P[0]
+Import show expression: \gate.P[1]
+Import show expression: \gate.P[2]
+Import show expression: \gate.P[3]
+Import show expression: \gate.P[4]
+Import show expression: \gate.P[5]
+Import show expression: \gate.P[6]
+Import show expression: \gate.P[7]
+Import show expression: \gate.P[8]
+Import show expression: \gate.P[9]
+Import show expression: \gate.Sum
+Import show expression: \gate.carry
+Import show expression: \gate_Cout
+Import show expression: \gate_Sum
+Import show expression: \gold.A
+Import show expression: \gold.B
+Import show expression: \gold.Cin
+Import show expression: \gold.Cout
+Import show expression: \gold.Sum
+Import show expression: \gold_Cout
+Import show expression: \gold_Sum
+Import show expression: \in_A
+Import show expression: \in_B
+Import show expression: \in_Cin
+Import show expression: \trigger
+
+Solving problem with 2583 variables and 6780 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+19. Executing Verilog-2005 frontend: rtl/kogge_stone_32.v
+Parsing SystemVerilog input from `rtl/kogge_stone_32.v' to AST representation.
+Generating RTLIL representation for module `\kogge_stone_32'.
+Successfully finished Verilog frontend.
+
+20. Executing PREP pass.
+
+20.1. Executing HIERARCHY pass (managing design hierarchy).
+
+20.1.1. Analyzing design hierarchy..
+Top module:  \kogge_stone_32
+
+20.1.2. Analyzing design hierarchy..
+Top module:  \kogge_stone_32
+Removed 0 unused modules.
+
+20.2. Executing PROC pass (convert processes to netlists).
+
+20.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+20.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+20.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 322 assignments to connections.
+
+20.2.4. Executing PROC_INIT pass (extract init attributes).
+
+20.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+20.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+20.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+
+20.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\kogge_stone_32.\G[5]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\G[4]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\G[3]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\G[2]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\G[1]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\G[0]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\P[2]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\P[3]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\P[4]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\P[5]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\P[1]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+No latch inferred for signal `\kogge_stone_32.\P[0]' from process `\kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+
+20.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+20.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+20.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `kogge_stone_32.$proc$rtl/kogge_stone_32.v:0$611'.
+Cleaned up 0 empty switches.
+
+20.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module kogge_stone_32.
+
+20.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module kogge_stone_32.
+
+20.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \kogge_stone_32..
+Removed 0 unused cells and 336 unused wires.
+<suppressed ~1 debug messages>
+
+20.5. Executing CHECK pass (checking for obvious problems).
+Checking module kogge_stone_32...
+Found and reported 0 problems.
+
+20.6. Executing OPT pass (performing simple optimizations).
+
+20.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module kogge_stone_32.
+
+20.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\kogge_stone_32'.
+Removed a total of 0 cells.
+
+20.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \kogge_stone_32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+20.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \kogge_stone_32.
+Performed a total of 0 changes.
+
+20.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\kogge_stone_32'.
+Removed a total of 0 cells.
+
+20.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \kogge_stone_32..
+
+20.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module kogge_stone_32.
+
+20.6.8. Finished OPT passes. (There is nothing left to do.)
+
+20.7. Executing WREDUCE pass (reducing word size of cells).
+
+20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \kogge_stone_32..
+
+20.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+20.10. Executing OPT pass (performing simple optimizations).
+
+20.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module kogge_stone_32.
+
+20.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\kogge_stone_32'.
+Removed a total of 0 cells.
+
+20.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \kogge_stone_32..
+
+20.10.4. Finished fast OPT passes.
+
+20.11. Printing statistics.
+
+=== kogge_stone_32 ===
+
+   Number of wires:                179
+   Number of wire bits:            676
+   Number of public wires:          18
+   Number of public wire bits:     515
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                485
+     $and                          291
+     $or                           161
+     $xor                           33
+
+20.12. Executing CHECK pass (checking for obvious problems).
+Checking module kogge_stone_32...
+Found and reported 0 problems.
+
+21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \kogge_stone_32..
+Renaming module \kogge_stone_32 to \uut_ks.
+
+22. Executing Verilog-2005 frontend: <<EOT
+Parsing SystemVerilog input from `<<EOT' to AST representation.
+Generating RTLIL representation for module `\golden_ref'.
+Successfully finished Verilog frontend.
+
+23. Executing PREP pass.
+
+23.1. Executing HIERARCHY pass (managing design hierarchy).
+
+23.1.1. Analyzing design hierarchy..
+Top module:  \golden_ref
+
+23.1.2. Analyzing design hierarchy..
+Top module:  \golden_ref
+Removed 0 unused modules.
+
+23.2. Executing PROC pass (convert processes to netlists).
+
+23.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+23.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+23.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+23.2.4. Executing PROC_INIT pass (extract init attributes).
+
+23.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+23.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+23.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+23.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+23.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+23.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+23.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+23.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+23.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+23.5. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+23.6. Executing OPT pass (performing simple optimizations).
+
+23.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+23.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+23.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \golden_ref..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+23.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \golden_ref.
+Performed a total of 0 changes.
+
+23.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+23.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+23.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+23.6.8. Finished OPT passes. (There is nothing left to do.)
+
+23.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 33) from port A of cell golden_ref.$add$<<EOT:8$1001 ($add).
+Removed top 1 bits (of 33) from port B of cell golden_ref.$add$<<EOT:8$1001 ($add).
+
+23.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+23.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+23.10. Executing OPT pass (performing simple optimizations).
+
+23.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+23.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+23.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+23.10.4. Finished fast OPT passes.
+
+23.11. Printing statistics.
+
+=== golden_ref ===
+
+   Number of wires:                  6
+   Number of wire bits:            131
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                            2
+
+23.12. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Renaming module \golden_ref to \golden.
+
+25. Executing MITER pass (creating miter circuit).
+Creating miter cell "miter_ks" with gold cell "ref" and gate cell "uut".
+
+25.1. Executing FLATTEN pass (flatten design).
+<suppressed ~2 debug messages>
+
+25.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_ks.
+
+26. Executing PREP pass.
+
+26.1. Executing HIERARCHY pass (managing design hierarchy).
+
+26.1.1. Analyzing design hierarchy..
+Top module:  \miter_ks
+
+26.1.2. Analyzing design hierarchy..
+Top module:  \miter_ks
+Removing unused module `\ref'.
+Removing unused module `\uut'.
+Removed 2 unused modules.
+Module miter_ks directly or indirectly contains formal properties -> setting "keep" attribute.
+
+26.2. Executing PROC pass (convert processes to netlists).
+
+26.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+26.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+26.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+26.2.4. Executing PROC_INIT pass (extract init attributes).
+
+26.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+26.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+26.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+26.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+26.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+26.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+26.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+26.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_ks.
+
+26.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_ks.
+
+26.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_ks..
+
+26.5. Executing CHECK pass (checking for obvious problems).
+Checking module miter_ks...
+Found and reported 0 problems.
+
+26.6. Executing OPT pass (performing simple optimizations).
+
+26.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_ks.
+
+26.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_ks'.
+Removed a total of 0 cells.
+
+26.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \miter_ks..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+26.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \miter_ks.
+Performed a total of 0 changes.
+
+26.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_ks'.
+Removed a total of 0 cells.
+
+26.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_ks..
+
+26.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_ks.
+
+26.6.8. Finished OPT passes. (There is nothing left to do.)
+
+26.7. Executing WREDUCE pass (reducing word size of cells).
+
+26.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_ks..
+
+26.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+26.10. Executing OPT pass (performing simple optimizations).
+
+26.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_ks.
+
+26.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_ks'.
+Removed a total of 0 cells.
+
+26.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_ks..
+
+26.10.4. Finished fast OPT passes.
+
+26.11. Printing statistics.
+
+=== miter_ks ===
+
+   Number of wires:                196
+   Number of wire bits:            942
+   Number of public wires:          31
+   Number of public wire bits:     745
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                492
+     $add                            2
+     $and                          291
+     $assert                         1
+     $eqx                            2
+     $not                            1
+     $or                           161
+     $reduce_and                     1
+     $xor                           33
+
+26.12. Executing CHECK pass (checking for obvious problems).
+Checking module miter_ks...
+Found and reported 0 problems.
+
+27. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 492 cells to SAT database.
+Import proof for assert: $auto$miter.cc:269:create_miter_equiv$1008 when 1'1.
+Import show expression: $auto$miter.cc:242:create_miter_equiv$1004
+Import show expression: $auto$miter.cc:242:create_miter_equiv$1006
+Import show expression: $auto$miter.cc:269:create_miter_equiv$1008
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$614_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$617_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$620_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$623_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$626_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$629_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$632_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$635_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$638_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$641_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$644_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$647_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$650_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$653_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$656_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$659_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$662_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$665_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$668_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$671_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$674_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$677_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$680_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$683_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$686_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$689_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$692_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$695_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$698_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$701_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$704_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$707_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$710_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$713_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$716_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$719_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$722_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$725_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$728_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$731_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$734_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$737_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$740_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$743_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$746_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$749_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$752_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$755_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$758_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$761_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$764_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$767_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$770_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$773_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$776_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$779_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$782_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$785_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$788_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$791_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$794_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$797_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$800_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$803_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$806_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$809_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$812_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$815_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$818_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$821_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$824_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$827_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$830_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$833_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$836_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$839_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$842_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$845_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$848_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$851_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$854_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$857_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$860_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$863_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$866_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$869_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$872_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$875_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$878_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$881_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$884_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$887_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$890_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$893_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$896_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$899_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$902_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$905_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$908_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$911_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$914_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$917_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$920_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$923_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$926_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$929_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$932_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$935_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$938_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$941_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$944_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$947_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$950_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$953_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$956_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$959_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$962_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$965_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$968_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$971_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$974_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$977_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$980_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$983_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$986_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$989_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$992_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$995_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:27$998_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$516_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$519_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$522_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$525_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$528_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$531_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$534_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$537_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$540_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$543_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$546_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$549_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$552_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$555_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$558_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$561_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$564_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$567_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$570_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$573_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$576_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$579_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$582_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$585_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$588_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$591_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$594_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$597_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$600_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$603_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$606_Y
+Import show expression: $flatten\gate.$and$rtl/kogge_stone_32.v:41$609_Y
+Import show expression: $flatten\gold.$add$<<EOT:8$1001_Y
+Import show expression: \gate.A
+Import show expression: \gate.B
+Import show expression: \gate.Cin
+Import show expression: \gate.Cout
+Import show expression: \gate.G[0]
+Import show expression: \gate.G[1]
+Import show expression: \gate.G[2]
+Import show expression: \gate.G[3]
+Import show expression: \gate.G[4]
+Import show expression: \gate.G[5]
+Import show expression: \gate.P[0]
+Import show expression: \gate.P[1]
+Import show expression: \gate.P[2]
+Import show expression: \gate.P[3]
+Import show expression: \gate.P[4]
+Import show expression: \gate.P[5]
+Import show expression: \gate.Sum
+Import show expression: \gate.carry
+Import show expression: \gate_Cout
+Import show expression: \gate_Sum
+Import show expression: \gold.A
+Import show expression: \gold.B
+Import show expression: \gold.Cin
+Import show expression: \gold.Cout
+Import show expression: \gold.Sum
+Import show expression: \gold_Cout
+Import show expression: \gold_Sum
+Import show expression: \in_A
+Import show expression: \in_B
+Import show expression: \in_Cin
+Import show expression: \trigger
+
+Solving problem with 3663 variables and 9588 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+28. Executing Verilog-2005 frontend: rtl/han_carlson_32.v
+Parsing SystemVerilog input from `rtl/han_carlson_32.v' to AST representation.
+Generating RTLIL representation for module `\han_carlson_32'.
+Successfully finished Verilog frontend.
+
+29. Executing PREP pass.
+
+29.1. Executing HIERARCHY pass (managing design hierarchy).
+
+29.1.1. Analyzing design hierarchy..
+Top module:  \han_carlson_32
+
+29.1.2. Analyzing design hierarchy..
+Top module:  \han_carlson_32
+Removed 0 unused modules.
+
+29.2. Executing PROC pass (convert processes to netlists).
+
+29.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+29.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+29.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 386 assignments to connections.
+
+29.2.4. Executing PROC_INIT pass (extract init attributes).
+
+29.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+29.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+29.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+
+29.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\han_carlson_32.\G[6]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\G[5]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\G[4]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\G[3]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\G[2]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\G[1]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\G[0]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\P[2]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\P[3]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\P[4]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\P[5]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\P[6]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\P[1]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+No latch inferred for signal `\han_carlson_32.\P[0]' from process `\han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+
+29.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+29.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+29.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `han_carlson_32.$proc$rtl/han_carlson_32.v:0$1076'.
+Cleaned up 0 empty switches.
+
+29.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module han_carlson_32.
+
+29.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module han_carlson_32.
+
+29.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \han_carlson_32..
+Removed 0 unused cells and 209 unused wires.
+<suppressed ~1 debug messages>
+
+29.5. Executing CHECK pass (checking for obvious problems).
+Checking module han_carlson_32...
+Found and reported 0 problems.
+
+29.6. Executing OPT pass (performing simple optimizations).
+
+29.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module han_carlson_32.
+
+29.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\han_carlson_32'.
+Removed a total of 0 cells.
+
+29.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \han_carlson_32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+29.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \han_carlson_32.
+Performed a total of 0 changes.
+
+29.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\han_carlson_32'.
+Removed a total of 0 cells.
+
+29.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \han_carlson_32..
+
+29.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module han_carlson_32.
+
+29.6.8. Finished OPT passes. (There is nothing left to do.)
+
+29.7. Executing WREDUCE pass (reducing word size of cells).
+
+29.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \han_carlson_32..
+
+29.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+29.10. Executing OPT pass (performing simple optimizations).
+
+29.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module han_carlson_32.
+
+29.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\han_carlson_32'.
+Removed a total of 0 cells.
+
+29.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \han_carlson_32..
+
+29.10.4. Finished fast OPT passes.
+
+29.11. Printing statistics.
+
+=== han_carlson_32 ===
+
+   Number of wires:                132
+   Number of wire bits:            691
+   Number of public wires:          20
+   Number of public wire bits:     579
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                307
+     $and                          193
+     $or                           112
+     $xor                            2
+
+29.12. Executing CHECK pass (checking for obvious problems).
+Checking module han_carlson_32...
+Found and reported 0 problems.
+
+30. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \han_carlson_32..
+Renaming module \han_carlson_32 to \uut_hc.
+
+31. Executing Verilog-2005 frontend: <<EOT
+Parsing SystemVerilog input from `<<EOT' to AST representation.
+Generating RTLIL representation for module `\golden_ref'.
+Successfully finished Verilog frontend.
+
+32. Executing PREP pass.
+
+32.1. Executing HIERARCHY pass (managing design hierarchy).
+
+32.1.1. Analyzing design hierarchy..
+Top module:  \golden_ref
+
+32.1.2. Analyzing design hierarchy..
+Top module:  \golden_ref
+Removed 0 unused modules.
+
+32.2. Executing PROC pass (convert processes to netlists).
+
+32.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+32.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+32.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+32.2.4. Executing PROC_INIT pass (extract init attributes).
+
+32.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+32.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+32.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+32.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+32.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+32.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+32.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+32.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+32.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+32.5. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+32.6. Executing OPT pass (performing simple optimizations).
+
+32.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+32.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+32.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \golden_ref..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+32.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \golden_ref.
+Performed a total of 0 changes.
+
+32.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+32.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+32.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+32.6.8. Finished OPT passes. (There is nothing left to do.)
+
+32.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 33) from port A of cell golden_ref.$add$<<EOT:8$1319 ($add).
+Removed top 1 bits (of 33) from port B of cell golden_ref.$add$<<EOT:8$1319 ($add).
+
+32.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+32.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+32.10. Executing OPT pass (performing simple optimizations).
+
+32.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module golden_ref.
+
+32.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\golden_ref'.
+Removed a total of 0 cells.
+
+32.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+
+32.10.4. Finished fast OPT passes.
+
+32.11. Printing statistics.
+
+=== golden_ref ===
+
+   Number of wires:                  6
+   Number of wire bits:            131
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                            2
+
+32.12. Executing CHECK pass (checking for obvious problems).
+Checking module golden_ref...
+Found and reported 0 problems.
+
+33. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \golden_ref..
+Renaming module \golden_ref to \golden.
+
+34. Executing MITER pass (creating miter circuit).
+Creating miter cell "miter_hc" with gold cell "ref" and gate cell "uut".
+
+34.1. Executing FLATTEN pass (flatten design).
+<suppressed ~2 debug messages>
+
+34.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_hc.
+
+35. Executing PREP pass.
+
+35.1. Executing HIERARCHY pass (managing design hierarchy).
+
+35.1.1. Analyzing design hierarchy..
+Top module:  \miter_hc
+
+35.1.2. Analyzing design hierarchy..
+Top module:  \miter_hc
+Removing unused module `\ref'.
+Removing unused module `\uut'.
+Removed 2 unused modules.
+Module miter_hc directly or indirectly contains formal properties -> setting "keep" attribute.
+
+35.2. Executing PROC pass (convert processes to netlists).
+
+35.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+35.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+35.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+35.2.4. Executing PROC_INIT pass (extract init attributes).
+
+35.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+35.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+35.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+35.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+35.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+35.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+35.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+35.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_hc.
+
+35.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_hc.
+
+35.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_hc..
+
+35.5. Executing CHECK pass (checking for obvious problems).
+Checking module miter_hc...
+Found and reported 0 problems.
+
+35.6. Executing OPT pass (performing simple optimizations).
+
+35.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_hc.
+
+35.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_hc'.
+Removed a total of 0 cells.
+
+35.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \miter_hc..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+35.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \miter_hc.
+Performed a total of 0 changes.
+
+35.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_hc'.
+Removed a total of 0 cells.
+
+35.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_hc..
+
+35.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_hc.
+
+35.6.8. Finished OPT passes. (There is nothing left to do.)
+
+35.7. Executing WREDUCE pass (reducing word size of cells).
+
+35.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_hc..
+
+35.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+35.10. Executing OPT pass (performing simple optimizations).
+
+35.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter_hc.
+
+35.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\miter_hc'.
+Removed a total of 0 cells.
+
+35.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter_hc..
+
+35.10.4. Finished fast OPT passes.
+
+35.11. Printing statistics.
+
+=== miter_hc ===
+
+   Number of wires:                149
+   Number of wire bits:            957
+   Number of public wires:          33
+   Number of public wire bits:     809
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                314
+     $add                            2
+     $and                          193
+     $assert                         1
+     $eqx                            2
+     $not                            1
+     $or                           112
+     $reduce_and                     1
+     $xor                            2
+
+35.12. Executing CHECK pass (checking for obvious problems).
+Checking module miter_hc...
+Found and reported 0 problems.
+
+36. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 314 cells to SAT database.
+Import proof for assert: $auto$miter.cc:269:create_miter_equiv$1326 when 1'1.
+Import show expression: $auto$miter.cc:242:create_miter_equiv$1322
+Import show expression: $auto$miter.cc:242:create_miter_equiv$1324
+Import show expression: $auto$miter.cc:269:create_miter_equiv$1326
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1079_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1082_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1085_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1088_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1091_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1094_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1097_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1100_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1103_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1106_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1109_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1112_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1115_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1118_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1121_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:35$1124_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1127_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1130_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1133_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1136_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1139_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1142_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1145_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1148_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1151_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1154_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1157_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1160_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1163_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1166_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1169_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1172_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1175_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1178_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1181_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1184_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1187_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1190_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1193_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1196_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1199_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1202_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1205_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1208_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1211_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1214_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1217_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1220_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1223_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1226_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1229_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1232_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1235_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1238_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1241_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1244_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1247_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1250_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1253_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1256_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1259_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1262_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1265_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1268_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:48$1271_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1274_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1277_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1280_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1283_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1286_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1289_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1292_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1295_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1298_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1301_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1304_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1307_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1310_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1313_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:63$1316_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1012_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1014_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1016_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1018_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1020_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1022_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1024_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1026_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1028_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1030_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1032_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1034_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1036_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1038_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1040_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1042_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1044_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1046_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1048_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1050_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1052_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1054_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1056_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1058_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1060_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1062_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1064_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1066_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1068_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1070_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1072_Y
+Import show expression: $flatten\gate.$and$rtl/han_carlson_32.v:76$1074_Y
+Import show expression: $flatten\gold.$add$<<EOT:8$1319_Y
+Import show expression: \gate.A
+Import show expression: \gate.B
+Import show expression: \gate.Cin
+Import show expression: \gate.Cout
+Import show expression: \gate.G[0]
+Import show expression: \gate.G[1]
+Import show expression: \gate.G[2]
+Import show expression: \gate.G[3]
+Import show expression: \gate.G[4]
+Import show expression: \gate.G[5]
+Import show expression: \gate.G[6]
+Import show expression: \gate.P[0]
+Import show expression: \gate.P[1]
+Import show expression: \gate.P[2]
+Import show expression: \gate.P[3]
+Import show expression: \gate.P[4]
+Import show expression: \gate.P[5]
+Import show expression: \gate.P[6]
+Import show expression: \gate.Sum
+Import show expression: \gate.carry
+Import show expression: \gate_Cout
+Import show expression: \gate_Sum
+Import show expression: \gold.A
+Import show expression: \gold.B
+Import show expression: \gold.Cin
+Import show expression: \gold.Cout
+Import show expression: \gold.Sum
+Import show expression: \gold_Cout
+Import show expression: \gold_Sum
+Import show expression: \in_A
+Import show expression: \in_B
+Import show expression: \in_Cin
+Import show expression: \trigger
+
+Solving problem with 2928 variables and 7677 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 9179f85a37, CPU: user 0.69s system 0.01s, MEM: 18.73 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 24% 16x read_verilog (0 sec), 16% 64x opt_expr (0 sec), ...

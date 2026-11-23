@@ -1,38 +1,79 @@
-# Architecture notes
+# 32-bit Adder Architectures
 
-## Common interface
+## Common Interface
 
-Each module is a combinational unsigned 32-bit adder:
+All four combinational adder modules share an identical top-level interface:
 
-- Inputs: `A[31:0]`, `B[31:0]`, `Cin`
-- Outputs: `Sum[31:0]`, `Cout`
-- Reference arithmetic: `{1'b0, A} + {1'b0, B} + Cin`
+- **Inputs:** `A[31:0]`, `B[31:0]`, `Cin`
+- **Outputs:** `Sum[31:0]`, `Cout`
+- **Golden Reference Arithmetic:** `{Cout, Sum} = {1'b0, A} + {1'b0, B} + Cin`
 
-`Cout` is the 33rd result bit. Signed overflow is not separately produced.
+---
 
-## Ripple-Carry Adder (RCA)
+## 1. Ripple-Carry Adder (RCA) (`rtl/ripple_carry_32.v`)
 
-For each bit `i`:
+For each bit position $i \in [0, 31]$:
+- $P_i = A_i \oplus B_i$
+- $G_i = A_i \land B_i$
+- $\text{Sum}_i = P_i \oplus C_i$
+- $C_{i+1} = G_i \lor (P_i \land C_i)$
 
-- `P[i] = A[i] XOR B[i]`
-- `G[i] = A[i] AND B[i]`
-- `Sum[i] = P[i] XOR carry[i]`
-- `carry[i+1] = G[i] OR (P[i] AND carry[i])`
+**Characteristics:**
+- Simplest topology with minimal gate count and regular 1D physical layout.
+- Worst-case propagation delay scales linearly: $\mathcal{O}(N)$ (32 carry stages).
+- Serves as the baseline for area efficiency and minimum power.
 
-The carry chain is conceptually linear in width. RCA is commonly a compact baseline, though actual mapping and timing depend on synthesis and library.
+---
 
-## Brent–Kung (BK)
+## 2. Brent–Kung Parallel-Prefix Adder (BKA) (`rtl/brent_kung_32.v`)
 
-Brent–Kung is a parallel-prefix carry architecture. It performs an up-sweep to form group generate/propagate terms and a down-sweep to fill required prefix results. It typically uses fewer prefix nodes than a dense Kogge–Stone network, at the cost of a somewhat deeper prefix path.
+Brent–Kung uses a sparse parallel-prefix tree:
+1. **Forward Up-Sweep Tree:** 5 levels ($D = 1, 2, 4, 8, 16$) combining group generate and propagate terms at power-of-two boundaries.
+2. **Reverse Down-Sweep Tree:** 4 levels ($D = 8, 4, 2, 1$) computing the intermediate prefixes.
 
-The supplied `rtl/brent_kung_32.v` expresses this tree in generate loops. Always run the common regression after changing the RTL.
+**Characteristics:**
+- **Logic Depth:** $2 \log_2 N - 2 = 9$ prefix levels.
+- **Prefix Cells:** 57 cells.
+- **Fan-Out:** Maximum fan-out $\le 2$, minimizing gate loading.
+- Excellent compromise between logic depth and area/wiring density.
 
-## Kogge–Stone (KS)
+---
 
-Kogge–Stone computes prefix generate/propagate terms across logarithmic stages. At each stage, each eligible bit combines with a prefix node a power-of-two distance earlier. The dense network provides shallow logic depth but can require more nodes and wiring than some alternatives.
+## 3. Kogge–Stone Parallel-Prefix Adder (KSA) (`rtl/kogge_stone_32.v`)
 
-The supplied `rtl/kogge_stone_32.v` expresses the prefix stages with generate loops. Always run the common regression after changing the RTL.
+Kogge–Stone computes group prefixes across strictly logarithmic levels:
+- At each prefix stage $s \in [1, 5]$, every eligible bit combines with a partner node at lateral distance $D = 2^{s-1}$.
 
-## Cin handling
+**Characteristics:**
+- **Logic Depth:** $\log_2 N = 5$ prefix levels (minimal depth).
+- **Prefix Cells:** 129 prefix cells.
+- **Wiring Density:** Very high interconnect density and wire congestion.
+- Although theoretically the fastest architecture, heavy wiring and capacitive load can degrade speed in post-layout nanometer CMOS.
 
-Prefix networks form group generate/propagate terms for `A` and `B`; the carry-in is folded into each prefix carry as `G_prefix[i] OR (P_prefix[i] AND Cin)`. The sum uses the original bit propagate term and the incoming carry.
+---
+
+## 4. Han–Carlson Hybrid Parallel-Prefix Adder (HCA) (`rtl/han_carlson_32.v`)
+
+The Han–Carlson architecture combines the low routing density of Brent–Kung with the shallow logic depth of Kogge–Stone:
+1. **Stage 0 (Pre-processing):** Bit-level $P_0[i] = A_i \oplus B_i$ and $G_0[i] = A_i \land B_i$.
+2. **Stage 1 (Brent–Kung Up-sweep):** Combines adjacent even/odd bit pairs across all odd bit positions ($i \in \{1, 3, \dots, 31\}$).
+3. **Stages 2 to 5 (Inner Kogge–Stone Tree):** A dense 4-stage Kogge–Stone network runs **only on the odd bit positions** (distances 2, 4, 8, 16).
+4. **Stage 6 (Down-sweep Distribution):** The resolved odd prefix carries are distributed to adjacent even positions ($i \in \{2, 4, \dots, 30\}$).
+5. **Post-processing:** $C_{i+1} = G_6[i] \lor (P_6[i] \land C_{in})$, $\text{Sum}_i = P_0[i] \oplus C_i$.
+
+**Characteristics:**
+- **Logic Depth:** $\log_2 N + 1 = 6$ prefix levels (only 1 level more than Kogge–Stone).
+- **Prefix Cells:** ~72 cells (~44% fewer prefix cells than Kogge–Stone).
+- **Wiring Density:** Half the wiring density of Kogge–Stone.
+- Modern industry favorite for high-performance integer ALUs.
+
+---
+
+## Architectural Comparison Matrix
+
+| Architecture | Prefix Depth | Prefix Cells | Max Fan-out | Wiring Congestion |
+| :--- | :---: | :---: | :---: | :---: |
+| **Ripple-Carry (RCA)** | 32 stages | 0 (ripple) | 2 | Negligible |
+| **Brent–Kung (BKA)** | 9 stages | 57 | 2 | Low |
+| **Kogge–Stone (KSA)** | 5 stages | 129 | 2 | Very High |
+| **Han–Carlson (HCA)** | 6 stages | 72 | 2 | Moderate |

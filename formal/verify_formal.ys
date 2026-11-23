@@ -1,0 +1,125 @@
+# Formal verification script for 32-bit adders using Yosys SAT solver
+# Mathematically proves that each adder's output {Cout, Sum} identically
+# matches the golden arithmetic reference (A + B + Cin) for ALL 2^65 possible input states.
+
+# --- 1. Formal Verification: Ripple-Carry Adder ---
+read_verilog -sv rtl/ripple_carry_32.v
+prep -top ripple_carry_32
+opt_clean
+rename ripple_carry_32 uut_rca
+design -stash uut_rca
+
+# Golden reference circuit
+read_verilog -sv <<EOT
+module golden_ref (
+    input  wire [31:0] A,
+    input  wire [31:0] B,
+    input  wire        Cin,
+    output wire [31:0] Sum,
+    output wire        Cout
+);
+    assign {Cout, Sum} = {1'b0, A} + {1'b0, B} + Cin;
+endmodule
+EOT
+prep -top golden_ref
+opt_clean
+rename golden_ref golden
+design -stash golden
+
+# --- Prove Ripple-Carry Adder Equivalence ---
+design -copy-from uut_rca -as uut uut_rca
+design -copy-from golden -as ref golden
+miter -equiv -flatten -make_assert ref uut miter_rca
+prep -top miter_rca
+sat -verify -prove-asserts -show-all
+design -reset
+
+# --- 2. Formal Verification: Brent-Kung Adder ---
+read_verilog -sv rtl/brent_kung_32.v
+prep -top brent_kung_32
+opt_clean
+rename brent_kung_32 uut_bk
+design -stash uut_bk
+
+read_verilog -sv <<EOT
+module golden_ref (
+    input  wire [31:0] A,
+    input  wire [31:0] B,
+    input  wire        Cin,
+    output wire [31:0] Sum,
+    output wire        Cout
+);
+    assign {Cout, Sum} = {1'b0, A} + {1'b0, B} + Cin;
+endmodule
+EOT
+prep -top golden_ref
+opt_clean
+rename golden_ref golden
+design -stash golden
+
+design -copy-from uut_bk -as uut uut_bk
+design -copy-from golden -as ref golden
+miter -equiv -flatten -make_assert ref uut miter_bk
+prep -top miter_bk
+sat -verify -prove-asserts -show-all
+design -reset
+
+# --- 3. Formal Verification: Kogge-Stone Adder ---
+read_verilog -sv rtl/kogge_stone_32.v
+prep -top kogge_stone_32
+opt_clean
+rename kogge_stone_32 uut_ks
+design -stash uut_ks
+
+read_verilog -sv <<EOT
+module golden_ref (
+    input  wire [31:0] A,
+    input  wire [31:0] B,
+    input  wire        Cin,
+    output wire [31:0] Sum,
+    output wire        Cout
+);
+    assign {Cout, Sum} = {1'b0, A} + {1'b0, B} + Cin;
+endmodule
+EOT
+prep -top golden_ref
+opt_clean
+rename golden_ref golden
+design -stash golden
+
+design -copy-from uut_ks -as uut uut_ks
+design -copy-from golden -as ref golden
+miter -equiv -flatten -make_assert ref uut miter_ks
+prep -top miter_ks
+sat -verify -prove-asserts -show-all
+design -reset
+
+# --- 4. Formal Verification: Han-Carlson Adder ---
+read_verilog -sv rtl/han_carlson_32.v
+prep -top han_carlson_32
+opt_clean
+rename han_carlson_32 uut_hc
+design -stash uut_hc
+
+read_verilog -sv <<EOT
+module golden_ref (
+    input  wire [31:0] A,
+    input  wire [31:0] B,
+    input  wire        Cin,
+    output wire [31:0] Sum,
+    output wire        Cout
+);
+    assign {Cout, Sum} = {1'b0, A} + {1'b0, B} + Cin;
+endmodule
+EOT
+prep -top golden_ref
+opt_clean
+rename golden_ref golden
+design -stash golden
+
+design -copy-from uut_hc -as uut uut_hc
+design -copy-from golden -as ref golden
+miter -equiv -flatten -make_assert ref uut miter_hc
+prep -top miter_hc
+sat -verify -prove-asserts -show-all
+

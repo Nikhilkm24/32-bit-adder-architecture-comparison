@@ -15,3 +15,4 @@ run_one() {
 run_one ripple_carry_32 rtl/ripple_carry_32.v rca
 run_one brent_kung_32 rtl/brent_kung_32.v bk
 run_one kogge_stone_32 rtl/kogge_stone_32.v ks
+run_one han_carlson_32 rtl/han_carlson_32.v hc
